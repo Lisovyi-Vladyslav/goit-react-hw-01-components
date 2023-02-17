@@ -12,15 +12,23 @@ export const App = () => {
   return (
     <>
     <Profile
-     user={user}>
-    </Profile>
-      <Statistics
-        statistics={data}>
-      </Statistics>
-      <FriendList
-        friends={friends}>
-      </FriendList>
-      <TransactionHistory items={transactions} />;
+        user={user}
+        key={user.tag}
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        followers={user.stats.followers}
+        views={user.stats.views}
+        likes={user.stats.likes}
+      />
+    <Statistics
+        stats={data}
+        title={'Upload stats'}
+      />
+    <FriendList
+      friends={friends}/>
+    <TransactionHistory items={transactions} />;
   </>
   );
 };

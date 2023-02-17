@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { Conteiner, Description, Stats, Item } from "components/Profile/Profile.styled"
 
-export const Profile = ({user}) => {
+export const Profile = ({username, tag, location, avatar, likes, views, followers}) => {
   
-  const { username, tag, location, avatar, stats } = user;
+
     return (
       <Conteiner>
      <Description>
@@ -20,15 +20,15 @@ export const Profile = ({user}) => {
         <Stats>
     <Item>
       <span>Followers </span>
-                    <span>{stats.followers}</span>
+                    <span>{followers}</span>
     </Item>
     <Item>
       <span>Views </span>
-                    <span>{stats.views}</span>
+                    <span>{views}</span>
     </Item>
     <Item>
       <span>Likes </span>
-                    <span>{stats.likes}</span>
+                    <span>{likes}</span>
     </Item>
   </Stats>
 </Conteiner>
@@ -36,15 +36,14 @@ export const Profile = ({user}) => {
   );
 };
 Profile.propTypes = {
-  user: PropTypes.exact({
-    username: PropTypes.string.isRequired,
+ 
+  username: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
- stats: PropTypes.exact({
   followers: PropTypes.number.isRequired,
   views: PropTypes.number.isRequired,
   likes: PropTypes.number.isRequired,
-  }),   
-  }),
+    
+ 
 };

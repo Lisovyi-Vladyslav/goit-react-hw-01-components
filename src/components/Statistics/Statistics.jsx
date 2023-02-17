@@ -1,14 +1,15 @@
 import {Statistic, StatList} from "components/Statistics/Statistics.styled"
 import PropTypes from "prop-types";
 
-export const Statistics = ({ statistics }) => {
+export const Statistics = ({ stats, title }) => {
   
     return (
-     <Statistic>
-  <h2>Upload stats</h2>
+      <Statistic>
+        {title || <h2>{title}</h2>}
+  
 
   <StatList>
-          {statistics.map(({id, label, percentage}) => (
+          {stats.map(({id, label, percentage}) => (
       <li  key={id}>
               <span>{label} </span>
               <span>{percentage}%</span>
@@ -21,7 +22,7 @@ export const Statistics = ({ statistics }) => {
 };
 
 Statistics.propTypes = {
-   statistics: PropTypes.arrayOf(PropTypes.exact({
+   stats: PropTypes.arrayOf(PropTypes.exact({
     id: PropTypes.string,
   label: PropTypes.string,
   percentage: PropTypes.number,
